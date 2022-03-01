@@ -15,7 +15,31 @@ function app(people){
       searchResults = searchByName(people);
       break;
     case 'no':
-      // TODO: search by traits
+         // TODO: search by traits
+     
+      askGender = prompt("What is the person's gender? ")
+      let results = data.filter(function(el){
+          if(el.gender === askGender){
+            return true;
+          }})
+
+          return results;
+      //   
+
+
+      // height = prompt("What is the person's height? ")
+      
+
+      // weight = prompt("What is the person's weight?")
+     
+
+      // eyeColor = prompt("What is the person's eyecolor? ")
+      
+
+      // occupation = prompt("What is the person's occupation? ")
+   
+          
+
       break;
       default:
     app(people); // restart app
