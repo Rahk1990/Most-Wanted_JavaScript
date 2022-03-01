@@ -18,7 +18,8 @@ function app(people){
       // TODO: search by traits
 
     userChoice = searchByEyeColor(people)
-    
+    foundPeople = tempPeople
+    console.log(foundPeople)
     
 
 
@@ -107,7 +108,7 @@ function searchByEyeColor(people){
     }
   })
   displayPeople(foundPeople)
-  console.log(foundPeople)
+  // console.log(foundPeople)  DISPLAY TEST
    
   return foundPeople;
   
@@ -126,6 +127,7 @@ function searchByGender(people){
      return false;
    }
   })
+  displayPeople(foundGender)
   return foundGender;
 }
 
