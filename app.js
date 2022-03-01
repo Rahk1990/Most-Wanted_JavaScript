@@ -17,7 +17,14 @@ function app(people){
     case 'no':
       // TODO: search by traits
 
+    userChoice = searchByEyeColor(people)
     
+    
+
+
+
+    userChioce2 = searchByGender(people)
+
 
       break;
       default:
@@ -90,7 +97,7 @@ function searchByName(people){
 
 function searchByEyeColor(people){
   let chosenEyeColor = promptFor("What is the person's eye color?", autoValid);
-
+  
   let foundPeople = people.filter(function(potentialMatch){
     if(potentialMatch.eyeColor === chosenEyeColor){
       return true;
@@ -99,7 +106,10 @@ function searchByEyeColor(people){
       return false;
     }
   })
+  displayPeople(people)
+    console.log(displayPeople)
   return foundPeople;
+  
 }
 
 //FUNCTION FOR FINDING PEOPLE BY GENDER.
