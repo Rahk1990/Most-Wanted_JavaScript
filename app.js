@@ -106,8 +106,9 @@ function searchByEyeColor(people){
       return false;
     }
   })
-  displayPeople(people)
-    console.log(displayPeople)
+  displayPeople(foundPeople)
+  console.log(foundPeople)
+   
   return foundPeople;
   
 }
