@@ -15,30 +15,9 @@ function app(people){
       searchResults = searchByName(people);
       break;
     case 'no':
-         // TODO: search by traits
-     
-      askGender = prompt("What is the person's gender? ")
-      let results = data.filter(function(el){
-          if(el.gender === askGender){
-            return true;
-          }})
+      // TODO: search by traits
 
-          return results;
-      //   
-
-
-      // height = prompt("What is the person's height? ")
-      
-
-      // weight = prompt("What is the person's weight?")
-     
-
-      // eyeColor = prompt("What is the person's eyecolor? ")
-      
-
-      // occupation = prompt("What is the person's occupation? ")
-   
-          
+    
 
       break;
       default:
@@ -89,7 +68,8 @@ function mainMenu(person, people){
 /////////////////////////////////////////////////////////////////
 //#region 
 
-//nearly finished function used to search through an array of people to find matching first and last name and return a SINGLE person object.
+//FUNCTION FOR FINDING PEOPLE BY FIRST AND LAST NAME
+
 function searchByName(people){
   let firstName = promptFor("What is the person's first name?", autoValid);
   let lastName = promptFor("What is the person's last name?", autoValid);
@@ -102,16 +82,57 @@ function searchByName(people){
       return false;
     }
   })
-  // TODO: find the person single person object using the name they entered.
+  
   return foundPerson[0];
 }
 
-//unfinished function to search through an array of people to find matching eye colors. Use searchByName as reference.
-function searchByEyeColor(people){
+//FUNCTION FOR FINDING PEOPLE BY EYE COLOR
 
+function searchByEyeColor(people){
+  let chosenEyeColor = promptFor("What is the person's eye color?", autoValid);
+
+  let foundPeople = people.filter(function(potentialMatch){
+    if(potentialMatch.eyeColor === chosenEyeColor){
+      return true;
+    }
+    else{
+      return false;
+    }
+  })
+  return foundPeople;
 }
 
-//TODO: add other trait filter functions here.
+//FUNCTION FOR FINDING PEOPLE BY GENDER.
+
+function searchByGender(people){
+  let chosenGender = promptFor("What is the person's gender?", autoValid);
+
+  let foundGender = people.filter(function(potentialMatch){
+    if(potentialMatch.gender === chosenGender){
+      return true;
+    }
+   else{
+     return false;
+   }
+  })
+  return foundGender;
+}
+
+//FUNCTION FOR FINDING PEOPLE BY HEIGHT
+
+function searchByHeight(people){
+  let chosenHeight = promptFor("What is the person's height?", autoValid);
+
+  let foundHeight = people.filter(function(potentialMatch){
+    if(potentialMatch.height === chosenHeight){
+      return true;
+    }
+   else{
+     return false;
+   }
+  })
+  return foundHeight;
+}
 
 
 
