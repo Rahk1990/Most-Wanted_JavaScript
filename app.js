@@ -13,15 +13,23 @@ function app(people){
   switch(searchType){
     case 'yes':
       searchResults = searchByName(people);
+      console.log(searchResults)
       break;
     case 'no':
       // TODO: search by traits
 
-    searchByEyeColor(people)
-    // searchByGender(people)
-    
-    // userChioce2 = searchByGender(people)
+    // wantedSearch(people)// Starts Trait search
+      
+    searchResults = searchByGender(people);
 
+    
+    // searchByEyeColor(foundPeople);
+    
+      
+      // searchByHeight(foundPeople);
+      
+      console.log(foundPeople)
+      // mainMenu(people);
 
       break;
       default:
@@ -31,7 +39,7 @@ function app(people){
   
   // Call the mainMenu function ONLY after you find the SINGLE person you are looking for
   mainMenu(searchResults, people);
-  console.log("We Made it")
+  console.log("We Made it");
 
 }
 
@@ -79,7 +87,6 @@ function mainMenu(person, people){
 function searchByName(people){
   let firstName = promptFor("What is the person's first name?", autoValid);
   let lastName = promptFor("What is the person's last name?", autoValid);
-
   let foundPerson = people.filter(function(potentialMatch){
     if(potentialMatch.firstName === firstName && potentialMatch.lastName === lastName){
       return true;
@@ -91,6 +98,40 @@ function searchByName(people){
   
   return foundPerson[0];
 }
+
+function searchByTraitsFound(people){
+  
+  let firstName = promptFor("Please enter displayed First Name"); 
+  let lastName = promptFor("Please enter displayed Last Name");
+  let foundPerson = people.filter(function(potentialMatch){
+  if(potentialMatch.firstName === firstName && potentialMatch.lastName === lastName){
+    console.log(foundPerson)
+    return true;
+  }
+  else{
+    return false;
+  }
+
+  })
+  return foundPerson;
+}
+// What is user gender choice
+function searchByGender(people){
+  let chosenGender = promptFor("What is the person's gender?", autoValid);
+
+  let foundGender = people.filter(function(potentialMatch){
+    if(potentialMatch.gender === chosenGender){
+      return true;
+    }
+   else{
+     return false;
+    }
+  })
+  displayPeople(foundGender);
+  let foundPeople = foundGender;
+  searchByEyeColor(foundPeople);
+  
+  return foundPeople;
 
 //FUNCTION FOR FINDING PEOPLE BY EYE COLOR
 
@@ -105,16 +146,34 @@ function searchByEyeColor(people){
       return false;
     }
   })
-  displayPeople(foundPeople) // found people is to be pass into each f(x)
-  searchByGender(foundPeople)
+  displayPeople(foundPeople);
+  searchByHeight(foundPeople);
+  return foundPeople;
+
 }
-  // if (foundPeople > 0){
-  //   let (foundPeople = people);
-  //   mainMenu(people)
-  // }
-  // else{
-  //   return false
-  // }
+
+// function wantedSearch(people){
+//   let foundPeople = people;
+  
+//   // displayPeople(foundPeople) // found people is to be pass into each f(x)
+//   searchByEyeColor(foundPeople);
+//   console.log(foundPeople)
+  
+//   searchByGender(foundPeople);
+//   searchByHeight(foundPeople);
+  
+//   console.log(foundPeople)
+//   mainMenu(foundPeople);
+
+// }
+
+// if (foundPeople > 0){
+//     let (foundPeople = people);
+//     mainMenu(people)
+//   }
+//   else{
+//     return false
+//   }
 
 
   // if (foundPeople === 0)
@@ -134,19 +193,6 @@ function searchByEyeColor(people){
 
 //FUNCTION FOR FINDING PEOPLE BY GENDER.
 
-function searchByGender(people){
-  let chosenGender = promptFor("What is the person's gender?", autoValid);
-
-  let foundGender = people.filter(function(potentialMatch){
-    if(potentialMatch.gender === chosenGender){
-      return true;
-    }
-   else{
-     return false;
-   }
-  })
-  displayPeople(foundGender)
-  return foundGender;
 }
 
 //FUNCTION FOR FINDING PEOPLE BY HEIGHT
@@ -154,7 +200,7 @@ function searchByGender(people){
 function searchByHeight(people){
   let chosenHeight = promptFor("What is the person's height?", autoValid);
 
-  let foundHeight = people.filter(function(potentialMatch){
+  let foundPeople = people.filter(function(potentialMatch){
     if(potentialMatch.height === chosenHeight){
       return true;
     }
@@ -162,7 +208,13 @@ function searchByHeight(people){
      return false;
    }
   })
-  return foundHeight;
+  displayPeople(foundPeople);
+  searchByTraitsFound(foundPeople);
+  
+  console.log(foundPeople)
+  return foundPeople;
+  // let people = foundHeight
+  // return people;
 }
 
 
