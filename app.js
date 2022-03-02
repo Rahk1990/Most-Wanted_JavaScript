@@ -17,14 +17,10 @@ function app(people){
     case 'no':
       // TODO: search by traits
 
-    userChoice = searchByEyeColor(people)
-    foundPeople = tempPeople
-    console.log(foundPeople)
+    searchByEyeColor(people)
+    // searchByGender(people)
     
-
-
-
-    userChioce2 = searchByGender(people)
+    // userChioce2 = searchByGender(people)
 
 
       break;
@@ -35,6 +31,8 @@ function app(people){
   
   // Call the mainMenu function ONLY after you find the SINGLE person you are looking for
   mainMenu(searchResults, people);
+  console.log("We Made it")
+
 }
 
 // Menu function to call once you find who you are looking for
@@ -107,12 +105,32 @@ function searchByEyeColor(people){
       return false;
     }
   })
-  displayPeople(foundPeople)
-  // console.log(foundPeople)  DISPLAY TEST
-   
-  return foundPeople;
-  
+  displayPeople(foundPeople) // found people is to be pass into each f(x)
+  searchByGender(foundPeople)
 }
+  // if (foundPeople > 0){
+  //   let (foundPeople = people);
+  //   mainMenu(people)
+  // }
+  // else{
+  //   return false
+  // }
+
+
+  // if (foundPeople === 0)
+  // let foundPeople = person 
+  // console.log("One person Found")
+  // console.log(person)
+
+  // searchByHeight(foundPeople)
+  // mainMenu(person)
+  
+  // // console.log(foundPeople)  DISPLAY TEST
+  
+   
+  // return foundPeople;
+  
+// }
 
 //FUNCTION FOR FINDING PEOPLE BY GENDER.
 
