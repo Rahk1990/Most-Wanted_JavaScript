@@ -57,12 +57,18 @@ function mainMenu(person, people){
 
   switch(displayOption){
     case "info":
-    // TODO: get person's info
+    
     displayPerson(person)
+      
+    
 
     break;
     case "family":
     // TODO: get person's family
+
+    displayFamily(person)
+
+
     break;
     case "descendants":
     // TODO: get person's descendants
@@ -250,6 +256,11 @@ let personInfo = "First Name: " + person.firstName + "\n";
 
 }
 
+function displayFamily(person){
+      
+  let personInfo = "family: " + person.parents + "\n";
+    alert(personInfo);
+  }
 
 //#endregion
 
