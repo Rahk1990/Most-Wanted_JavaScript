@@ -257,31 +257,25 @@ let personInfo = "First Name: " + person.firstName + "\n";
 
 function displayFamily(person, people){
 
-let spouse = person.currentSpouse
+// let spouse = person.currentSpouse
+let parent = person.parents
 
-let discoveredSpouse = people.filter(function(el){
-  if(el.id === spouse){
+let discoveredParents = people.filter(function(el){
+  if(parent.includes(el.id)){
+    
     
     return true;
   }
   else{
     return false;
-  }})
-  displayPeople(discoveredSpouse);
+  }});
+  
 
-  let parent = person.parents
-
-  let myParent = people.filter(function(el){
-    if(el.parents === parent){
-      return true;
-    }
-    else{
-      return false;
-    }
-    })
-  displayPeople(myParent);
-
+  displayPeople(discoveredParents);
 };
+
+
+
 
 
 
