@@ -29,6 +29,7 @@ function app(people){
       // searchByHeight(foundPeople);
       
       console.log(foundPeople)
+      
       // mainMenu(people);
 
       break;
@@ -58,7 +59,7 @@ function mainMenu(person, people){
   switch(displayOption){
     case "info":
     
-    displayPerson(person)
+    displayPerson(person);
       
     
 
@@ -66,7 +67,7 @@ function mainMenu(person, people){
     case "family":
     // TODO: get person's family
 
-    displayFamily(person, people)
+    displayFamily(person, people);
 
 
     break;
@@ -242,40 +243,84 @@ function displayPeople(people){
     return person.firstName + " " + person.lastName;
   }).join("\n"));
 }
+function displayPeople(people){
+  alert(people.map(function(person){
+    return person.firstName + " " + person.lastName;
+  }).join("\n"));
+}
+// function displayParents(people){
+//   alert(people.includes("parents"))
+//   // .join("\n");
+// }
 
-function displayPerson(person){
+// return person.firstName + " " + person.lastName;
+function displayPerson(person, people){
   // print all of the information about a person:
   // height, weight, age, name, occupation, eye color.
 let personInfo = "First Name: " + person.firstName + "\n";
   personInfo += "Last Name: " + person.lastName + "\n"; personInfo += "D.O.B: " + person.dob + "\n"; 
+  personInfo += "parents: " + person.parents + "\n"; 
   personInfo += "Occupation: " + person.occupation + "\n";
   personInfo += "height: " + person.height + "\n"; 
   personInfo += "weight: " + person.weight + "\n"; 
-  personInfo += "eye color: " + person.eyeColor + "\n";
+  personInfo += "eye color: " + person.eyeColor + "\n"; 
   alert(personInfo);
 }
 
 function displayFamily(person, people){
 
-// let spouse = person.currentSpouse
-let parent = person.parents
+let spouse = person.currentSpouse;
 
-let discoveredParents = people.filter(function(el){
-  if(parent.includes(el.id)){
-    
+let discoveredSpouse = people.filter(function(el){
+  if(el.id === spouse){
     
     return true;
   }
   else{
     return false;
   }});
+
+  displayPeople(discoveredSpouse);
+
+  let myParent = person.parents;
   
+  let listedParent = people.filter(function(el){
+   
+    if (myParent.includes(el.id)){
+      return true;
+    }
+    // if(el.parents === myParent.includes("parents")){
+    //   alerts(listedParent)
+    //   return true;
+    // }
+    else{
+      return false;
+    }
+    });
 
-  displayPeople(discoveredParents);
+    
+    displayPeople(listedParent);
+
+    // let descendants = person.parents 
+    // let foundDescendants = people.filter(function(el){
+   
+    // if (myParent.includes(el.id)){
+    //   return true;
+    // }
+    // // if(el.parents === myParent.includes("parents")){
+    // //   alerts(listedParent)
+    // //   return true;
+    // // }
+    // else{
+    //   return false;
+    // }
+    // })
+
+    // displayPeople(listedParent);
+    
+
+
 };
-
-
-
 
 
 
