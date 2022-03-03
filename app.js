@@ -257,12 +257,10 @@ let personInfo = "First Name: " + person.firstName + "\n";
 
 function displayFamily(person){
 
-let spouse = person.filter(function(el){
-  return el.currentSpouse
-});
+let spouse = person.currentSpouse
 
-let discoveredSpouse = spouse.map(function(el){
-  if(el.includes("id" + spouse)){
+let discoveredSpouse = data.map(function(el){
+  if(el.id === spouse){
     return true;
   }
   else{
@@ -270,14 +268,32 @@ let discoveredSpouse = spouse.map(function(el){
   }
  } 
 )
-  alert(discoveredSpouse);
-};
+
+alert(discoveredSpouse);
+
+}
 
 
-    
+
+
   // let personInfo = "family: " + person.parents + "\n"; personInfo += "Spouse: " + person.currentSpouse;
   //   alert(personInfo);
   // }
+
+
+
+// let foundSpouse = person
+// let spouse = foundSpouse.filter(function(el){
+//   alert(spouse);
+//   // return el.currentSpouse
+// });
+
+  
+
+
+
+    
+
 
 
 // function displayPersonDecendents(person){
