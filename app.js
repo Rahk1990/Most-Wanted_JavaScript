@@ -66,7 +66,7 @@ function mainMenu(person, people){
     case "family":
     // TODO: get person's family
 
-    displayFamily(person)
+    displayFamily(person, people)
 
 
     break;
@@ -255,13 +255,13 @@ let personInfo = "First Name: " + person.firstName + "\n";
   alert(personInfo);
 }
 
-function displayFamily(person){
+function displayFamily(person, people){
 
 let spouse = person.currentSpouse
 
 
 
-let discoveredSpouse = data.filter(function(el){
+let discoveredSpouse = people.filter(function(el){
   if(el.id === spouse){
 
     return true;
