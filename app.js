@@ -72,6 +72,8 @@ function mainMenu(person, people){
     break;
     case "descendants":
     // TODO: get person's descendants
+
+
     break;
     case "restart":
     app(people); // restart
@@ -250,18 +252,41 @@ let personInfo = "First Name: " + person.firstName + "\n";
   personInfo += "height: " + person.height + "\n"; 
   personInfo += "weight: " + person.weight + "\n"; 
   personInfo += "eye color: " + person.eyeColor + "\n";
-  // TODO: finish getting the rest of the information to display.
   alert(personInfo);
-
-
 }
 
 function displayFamily(person){
-      
-  let personInfo = "family: " + person.parents + "\n";
-    alert(personInfo);
-  }
 
+let spouse = person.filter(function(el){
+  return el.currentSpouse
+});
+
+let discoveredSpouse = spouse.map(function(el){
+  if(el.includes("id" + spouse)){
+    return true;
+  }
+  else{
+    return false;
+  }
+ } 
+)
+  alert(discoveredSpouse);
+};
+
+
+    
+  // let personInfo = "family: " + person.parents + "\n"; personInfo += "Spouse: " + person.currentSpouse;
+  //   alert(personInfo);
+  // }
+
+
+// function displayPersonDecendents(person){
+
+//   let personDecendents = person.parents
+//   alert(personDecendents);
+//   console.log(personDecendents);
+//   }
+  
 //#endregion
 
 
