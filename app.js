@@ -259,21 +259,33 @@ function displayFamily(person, people){
 
 let spouse = person.currentSpouse
 
-
-
 let discoveredSpouse = people.filter(function(el){
   if(el.id === spouse){
-
+    
     return true;
   }
   else{
     return false;
-  }
- } 
-)
-displayPeople(discoveredSpouse);
+  }})
+  displayPeople(discoveredSpouse);
 
-}
+  let parent = person.parents
+
+  let myParent = people.filter(function(el){
+    if(el.parents === parent){
+      return true;
+    }
+    else{
+      return false;
+    }
+    })
+  displayPeople(myParent);
+
+};
+
+
+
+
 
 
 
