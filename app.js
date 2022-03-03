@@ -259,8 +259,11 @@ function displayFamily(person){
 
 let spouse = person.currentSpouse
 
-let discoveredSpouse = data.map(function(el){
+
+
+let discoveredSpouse = data.filter(function(el){
   if(el.id === spouse){
+
     return true;
   }
   else{
@@ -268,8 +271,7 @@ let discoveredSpouse = data.map(function(el){
   }
  } 
 )
-
-alert(discoveredSpouse);
+displayPeople(discoveredSpouse);
 
 }
 
